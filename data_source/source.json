@@ -1,0 +1,27 @@
+[
+  {
+    src: "https://pbs.twimg.com/media/BeRySFrCEAAIche.jpg",
+    title: "Airport",
+    caption: "Bored while waiting to board."
+  },
+  {
+    src: "https://pbs.twimg.com/media/BVRPgrpCQAAsgMp.jpg",
+    title: "Touch",
+    caption: "Sensory inputs at the art museum."
+  },
+  {
+    src: "https://pbs.twimg.com/media/BTlgDO-CEAAeOvw.jpg",
+    title: "Tools",
+    caption: "Tools of the trade (well, a trade)."
+  },
+  {
+    src: "https://pbs.twimg.com/media/A7R6jihCUAALVcu.jpg",
+    title: "Spring",
+    caption: "Wish you were here."
+  },
+  {
+    src: "https://pbs.twimg.com/media/Apz_wGRCQAIzGB5.jpg",
+    title: "Breakfast",
+    caption: "Food is good (especially after 11AM)."
+  }
+]
