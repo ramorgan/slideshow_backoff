@@ -3,18 +3,48 @@
 <head>
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <title>Slideshow Bakeoff</title>
+  <script type="text/javascript" src="mustache.js/mustache.js"></script>
   <script type="text/javascript" src="script.js"></script>
+
+<script type="text/javascript">
+var slides = {
+  "slide" : [
+    {
+      src: "https://pbs.twimg.com/media/BeRySFrCEAAIche.jpg",
+      title: "Airport",
+      caption: "Bored while waiting to board."
+    },
+    {
+      src: "https://pbs.twimg.com/media/BVRPgrpCQAAsgMp.jpg",
+      title: "Touch",
+      caption: "Sensory inputs at the art museum."
+    },
+    {
+      src: "https://pbs.twimg.com/media/BTlgDO-CEAAeOvw.jpg",
+      title: "Tools",
+      caption: "Tools of the trade (well, a trade)."
+    },
+    {
+      src: "https://pbs.twimg.com/media/A7R6jihCUAALVcu.jpg",
+      title: "Spring",
+      caption: "Wish you were here."
+    },
+    {
+      src: "https://pbs.twimg.com/media/Apz_wGRCQAIzGB5.jpg",
+      title: "Breakfast",
+      caption: "Food is good (especially after 11AM)."
+    }
+  ]
+}
+
+function loadtemp(){
+  var output = Mustache.render("{{#slide}} <article data-original='{{src}}' title='{{title}}'><p>{{caption}}</p></article>{{/slide}}", slides);
+  document.body.innerHTML = output;
+}
+</script>
+
 </head>
-<body>
-
-<article id="test" data-original="https://pbs.twimg.com/media/BeRySFrCEAAIche.jpg" title="Airport">
-  <p>Bored while waiting to board.</p>
-</article>
-
-<article id="test2" data-original="https://pbs.twimg.com/media/BeRySFrCEAAIche.jpg" title="Airport">
-  <p>Bored while waiting to board.</p>
-</article>
-
+<body onload="loadtemp()" >
 
 </body>
 </html>
