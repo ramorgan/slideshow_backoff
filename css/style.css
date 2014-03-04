@@ -1,0 +1,85 @@
+body{
+    margin:0;
+}
+
+body div{
+    padding:0px;
+    margin:0;
+    background-size: cover;
+    background-image: url('../img/cross_hatch.png');
+    /*width: screen_size_times_number_of_imgs;*/
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+
+}
+
+article{
+
+    /*width: screen_width;*/
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-image: 'data-origin';*/
+    /*background-image: url($img);*/
+
+    position: absolute;
+    top:0px;
+    /*Left changes to be screenwidth X position*/
+    left:100px;
+
+
+
+    animation-name:scroll-left;
+    animation-duration:5s;
+    animation-timing-function:linear
+
+        /* Safari and Chrome: */
+    -webkit-animation-name:scroll-left;
+    -webkit-animation-duration:5s;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-delay:2s;
+    /*-webkit-animation-iteration-count:infinite;*/
+    /*-webkit-animation-direction:alternate;*/
+    -webkit-animation-play-state:running;
+
+
+}
+
+/*animations*/
+
+
+
+/*@keyframes scroll-left{*/
+/*0% {left:0px}*/
+/*50% {left:-($screen_with/2)}*/
+/*100% {left:-($screen_with)}*/
+/*}*/
+
+
+
+@keyframes scroll-left{
+    0% {left:0px}
+    50% {left:-600px}
+    100% {left:-1200px}
+}
+
+
+/*For testing*/
+div article:nth-child(1) {
+    background-color:red;
+}
+
+div article:nth-child(2) {
+    background-color:blue;
+    left:700px;
+}
+
+div article:nth-child(3) {
+    background-color:yellow;
+    left:1400px;
+}
