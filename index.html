@@ -7,44 +7,36 @@
   <script type="text/javascript" src="script.js"></script>
 
 <script type="text/javascript">
-var slides = {
-  "slide" : [
-    {
-      src: "https://pbs.twimg.com/media/BeRySFrCEAAIche.jpg",
-      title: "Airport",
-      caption: "Bored while waiting to board."
-    },
-    {
-      src: "https://pbs.twimg.com/media/BVRPgrpCQAAsgMp.jpg",
-      title: "Touch",
-      caption: "Sensory inputs at the art museum."
-    },
-    {
-      src: "https://pbs.twimg.com/media/BTlgDO-CEAAeOvw.jpg",
-      title: "Tools",
-      caption: "Tools of the trade (well, a trade)."
-    },
-    {
-      src: "https://pbs.twimg.com/media/A7R6jihCUAALVcu.jpg",
-      title: "Spring",
-      caption: "Wish you were here."
-    },
-    {
-      src: "https://pbs.twimg.com/media/Apz_wGRCQAIzGB5.jpg",
-      title: "Breakfast",
-      caption: "Food is good (especially after 11AM)."
-    }
-  ]
+function getJSONP(url, success) {
+
+    var ud = '_' + +new Date,
+        script = document.createElement('script'),
+        head = document.getElementsByTagName('head')[0] 
+               || document.documentElement;
+
+    window[ud] = function(data) {
+        head.removeChild(script);
+        success && success(data);
+    };
+
+    script.src = url.replace('callback=?', 'callback=' + ud);
+    head.appendChild(script);
+
 }
+//var test = getJSONP('http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=84fc26d21495396d52011cfbab701ec9&photoset_id=72157641873353803&format=json&media=photos&nojsoncallback=1&extras=url_m,description', function(data){
+//    console.log(data);
+//});
 
 function loadtemp(){
-  var output = Mustache.render("{{#slide}} <article data-original='{{src}}' title='{{title}}'><p>{{caption}}</p></article>{{/slide}}", slides);
-  document.body.innerHTML = output;
+  //var output = Mustache.render("{{#slide}} <article data-original='{{src}}' title='{{title}}'><p>{{caption}}</p></article>{{/slide}}", slides);
+  //document.body.innerHTML = output;
 }
+
+
 </script>
 
 </head>
-<body onload="loadtemp()" >
+<body>
 
 </body>
 </html>
