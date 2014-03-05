@@ -4,39 +4,8 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <title>Slideshow Bakeoff</title>
   <script type="text/javascript" src="mustache.js/mustache.js"></script>
-  <script type="text/javascript" src="script.js"></script>
-
-<script type="text/javascript">
-function getJSONP(url, success) {
-
-    var ud = '_' + +new Date,
-        script = document.createElement('script'),
-        head = document.getElementsByTagName('head')[0] 
-               || document.documentElement;
-
-    window[ud] = function(data) {
-        head.removeChild(script);
-        success && success(data);
-    };
-
-    script.src = url.replace('callback=?', 'callback=' + ud);
-    head.appendChild(script);
-
-}
-//var test = getJSONP('http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=84fc26d21495396d52011cfbab701ec9&photoset_id=72157641873353803&format=json&media=photos&nojsoncallback=1&extras=url_m,description', function(data){
-//    console.log(data);
-//});
-
-function loadtemp(){
-  //var output = Mustache.render("{{#slide}} <article data-original='{{src}}' title='{{title}}'><p>{{caption}}</p></article>{{/slide}}", slides);
-  //document.body.innerHTML = output;
-}
-
-
-</script>
-
 </head>
-<body>
-
+<body id="b"><div id="w"></div>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
