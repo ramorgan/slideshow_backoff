@@ -20,7 +20,8 @@ window.addEventListener("load", function() {
 
   loadJSON('http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key=84fc26d21495396d52011cfbab701ec9&photoset_id=72157641873353803&format=json&media=photos&extras=url_m,description&nojsoncallback=1',
    function(data) {
-    var output = Mustache.render("{{#photo}}<article data-original='{{src}}' title='{{title}}'><p>{{description._content}}</p></article>{{/photo}}", data.photoset);
+    console.log(data);
+    var output = Mustache.render("{{#photo}}<article id='photo_{{id}}' data-pid='{{id}}' data-original='{{url_m}}' title='{{title}}'><p>{{description._content}}</p></article>{{/photo}}", data.photoset);
     document.getElementById('w').innerHTML = output;
 
     processSlides();
@@ -33,12 +34,13 @@ window.addEventListener("load", function() {
     articles = document.getElementsByTagName('article');
 
     // set the screen width
-    document.getElementById('w').setAttribute('style', 'width:' + (document.getElementById('b').offsetWidth * articles.length) + 'px');
+    w = document.getElementById('b').offsetWidth;
+    document.getElementById('w').setAttribute('style', 'width:' + (w * articles.length) + 'px');
 
     for (index = 0; index < articles.length; ++index) {
       slide = articles[index];
-      el = slide.dataset.original
-      console.log(el)
+      t = document.getElementById('photo_' + slide.dataset.pid);
+      t.setAttribute('style', 'width:' + w +'px; background: url(' + slide.dataset.original + '); background-size: cover;');
     }
   }
 });
